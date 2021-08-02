@@ -1,10 +1,11 @@
-# RESTful API Server Boilerplate
-## Featuring Docker, Node, Express, MongoDB, Mongoose, & NGINX 
+# RESTful API Server for Tech-Prize Code-A-thon based on https://github.com/hueter/docker-node-express-boilerplate
+## Featuring Docker, Node, Express, MongoDB, Mongoose, NGINX, And Food Desert Data for Racine, WI
 
 ![Tech Logos](./logos.png)
 
 ## License & Purpose
 
+## Original License by #Hueter @ Github
 MIT License. This is something I've used in production before with success that I found useful for quickly bootstrapping RESTful APIs. You can fork and clone and take this apart without giving me any credit for anything. If you like it, you can star the repo ⭐️ or follow me on GitHub.
 
 Feel free to make an issue or PR if you want to suggest ideas / fixes.

@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "Name": "Save A Lot",
+            "Type": "convenience store",
+            "Address": "3701 Durand Ave, Racine, WI 53405",
+            "Location": "42.6958751,-87.8227568"
+        }
+    ],
+    "required": [
+        "Name",
+        "Type",
+        "Address",
+        "Location"
+    ],
+    "properties": {
+        "Name": {
+            "$id": "#/properties/Name",
+            "type": "string",
+            "title": "The Store or Donation center Name",
+            "description": "unique name of the store add location name with the Chain name",
+            "default": "",
+            "examples": [
+                "Save A Lot on Memorial"
+            ]
+        },
+        "Type": {
+            "$id": "#/properties/Type",
+            "type": "string",
+            "title": "Type of Foodsource ",
+            "description": "Foodsourcetype see examples.",
+            "default": "",
+            "examples": [
+                "convenience store", "Grocery Store", "Food Bank", "Soup Kitchen", "Other"
+            ]
+        },
+        "Address": {
+            "$id": "#/properties/Address",
+            "type": "string",
+            "title": "The Address schema",
+            "description": "Complete address with City, State and Zipcode",
+            "default": "",
+            "examples": [
+                "3701 Durand Ave, Racine, WI 53405"
+            ]
+        },
+        "Phone_No": {
+            "$id": "#/properties/Phone_No",
+            "type": "string",
+            "title": "The Phone_No schema",
+            "description": "Optional Phone #",
+            "default": "",
+            "examples": [
+                "(262) 598-0693 "
+            ]
+        },
+        "Fresh Meats": {
+            "$id": "#/properties/Fresh%20Meats",
+            "type": "string",
+            "title": "The Fresh Meats schema",
+            "description": "Are fresh meats, and Poltry items available here?",
+            "default": "",
+            "examples": [
+                "No"
+            ]
+        },
+        "Fresh Vegies": {
+            "$id": "#/properties/Fresh%20Vegies",
+            "type": "string",
+            "title": "The Fresh Vegies schema",
+            "description": "Are some fresh vegitables, herbs and Fruits avaialble?.",
+            "default": "",
+            "examples": [
+                "yes"
+            ]
+        },
+        "Location": {
+            "$id": "#/properties/Location",
+            "type": "string",
+            "title": "The Location schema",
+            "description": "provide location as seen on Google Map",
+            "default": "",
+            "examples": [
+                "42.6958751,-87.8227568"
+            ]
+        }
+    },
+    "additionalProperties": false
+}

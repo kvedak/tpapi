@@ -1,11 +1,11 @@
 {
   "author": "Michael Hueter <mthueter@gmail.com>",
   "version": "2.0.0",
-  "name": "docker-node-express-boilerplate",
-  "description": "Boilerplate Dockerized Express code to launch new RESTful APIs.",
+  "name": "tech-prize-food-desert-api",
+  "description": "RESt API for use with Tech-Prize Code-A-Thon 2021",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mhueter/docker-node-express-boilerplate.git"
+    "url": "https://github.com/kvedak/tpapi.git"
   },
   "main": "app/app.js",
   "scripts": {
