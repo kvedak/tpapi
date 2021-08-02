@@ -9,9 +9,9 @@ const Schema = mongoose.Schema;
 
 const foodSourceSchema = new Schema({
   name: String,
-  number: Number,
-  stuff: [String],
-  url: String
+  type: String,
+  address: String,
+  location: String,
 });
 
 foodSourceSchema.statics = {
@@ -103,6 +103,6 @@ foodSourceSchema.options.toObject.transform = (doc, ret) => {
 };
 
 /** Ensure MongoDB Indices **/
-foodSourceSchema.index({ name: 1, number: 1 }, { unique: true }); // example compound idx
+// foodSourceSchema.index({ name: 1, number: 1 }, { unique: true }); // example compound idx
 
 module.exports = mongoose.model("FoodSource", foodSourceSchema);

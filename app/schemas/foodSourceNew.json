@@ -7,20 +7,20 @@
     "default": {},
     "examples": [
         {
-            "Name": "Save A Lot",
-            "Type": "convenience store",
-            "Address": "3701 Durand Ave, Racine, WI 53405",
-            "Location": "42.6958751,-87.8227568"
+            "name": "Save A Lot",
+            "type": "convenience store",
+            "address": "3701 Durand Ave, Racine, WI 53405",
+            "location": "42.6958751,-87.8227568"
         }
     ],
     "required": [
-        "Name",
-        "Type",
-        "Address",
-        "Location"
+        "name",
+        "type",
+        "address",
+        "location"
     ],
     "properties": {
-        "Name": {
+        "name": {
             "$id": "#/properties/Name",
             "type": "string",
             "title": "The Store or Donation center Name",
@@ -30,7 +30,7 @@
                 "Save A Lot on Memorial"
             ]
         },
-        "Type": {
+        "type": {
             "$id": "#/properties/Type",
             "type": "string",
             "title": "Type of Foodsource ",
@@ -40,7 +40,7 @@
                 "convenience store", "Grocery Store", "Food Bank", "Soup Kitchen", "Other"
             ]
         },
-        "Address": {
+        "address": {
             "$id": "#/properties/Address",
             "type": "string",
             "title": "The Address schema",
@@ -50,7 +50,7 @@
                 "3701 Durand Ave, Racine, WI 53405"
             ]
         },
-        "Phone_No": {
+        "phone_no": {
             "$id": "#/properties/Phone_No",
             "type": "string",
             "title": "The Phone_No schema",
@@ -60,7 +60,7 @@
                 "(262) 598-0693 "
             ]
         },
-        "Fresh Meats": {
+        "freshMeats": {
             "$id": "#/properties/Fresh%20Meats",
             "type": "string",
             "title": "The Fresh Meats schema",
@@ -70,7 +70,7 @@
                 "No"
             ]
         },
-        "Fresh Vegies": {
+        "freshVegies": {
             "$id": "#/properties/Fresh%20Vegies",
             "type": "string",
             "title": "The Fresh Vegies schema",
@@ -80,7 +80,7 @@
                 "yes"
             ]
         },
-        "Location": {
+        "location": {
             "$id": "#/properties/Location",
             "type": "string",
             "title": "The Location schema",
