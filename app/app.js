@@ -6,8 +6,7 @@ Promise = require("bluebird"); // eslint-disable-line
 // app imports
 const { connectToDatabase, globalResponseHeaders } = require("./config");
 const { errorHandler } = require("./handlers");
-const { thingsRouter } = require("./routers");
-const { foodSourcesRouter } = require("./routers");
+const { thingsRouter, foodSourcesRouter } = require("./routers");
 
 
 // global constants
