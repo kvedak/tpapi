@@ -100,7 +100,7 @@ foodSourceSchema.statics = {
 if (!foodSourceSchema.options.toObject) foodSourceSchema.options.toObject = {};
 foodSourceSchema.options.toObject.transform = (doc, ret) => {
   const transformed = ret;
-  delete transformed._id;
+  // delete transformed._id;
   delete transformed.__v;
   return transformed;
 };
