@@ -12,7 +12,7 @@ const foodSourceSchema = new Schema({
   type: String,
   address: String,
   phoneNo: String,
-  location: String,
+  location: Object,
   freshMeats: Boolean,
   freshVegies: Boolean
 });
