@@ -11,6 +11,7 @@ const foodSourceSchema = new Schema({
   name: String,
   type: String,
   address: String,
+  phoneNo: String,
   location: String,
   freshMeats: Boolean,
   freshVegies: Boolean

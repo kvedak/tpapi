@@ -52,14 +52,15 @@
                 "3701 Durand Ave, Racine, WI 53405"
             ]
         },
-        "phone_no": {
-            "$id": "#/properties/Phone_No",
+        "phoneNo": {
+            "$id": "#/properties/Phone%20No",
             "type": "string",
+            "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$",
             "title": "The Phone_No schema",
             "description": "Optional Phone #",
             "default": "",
             "examples": [
-                "(262) 598-0693 "
+                "(262)598-0693"
             ]
         },
         "freshMeats": {
