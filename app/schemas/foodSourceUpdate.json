@@ -23,6 +23,7 @@
         "name": {
             "$id": "#/properties/Name",
             "type": "string",
+            "minLength": 5,
             "title": "The Store or Donation center Name",
             "description": "unique name of the store add location name with the Chain name",
             "default": "",
@@ -33,11 +34,12 @@
         "type": {
             "$id": "#/properties/Type",
             "type": "string",
+            "enum": ["CS", "GS", "FB", "SK", "OT"],
             "title": "Type of Foodsource ",
-            "description": "Foodsourcetype see examples.",
+            "description": "Foodsourcetype convenience store GS: Grocery Store, FB:Food Bank, SK:Soup Kitchen,OT: Other",
             "default": "",
             "examples": [
-                "convenience store", "Grocery Store", "Food Bank", "Soup Kitchen", "Other"
+                "GS"
             ]
         },
         "address": {
@@ -50,7 +52,7 @@
                 "3701 Durand Ave, Racine, WI 53405"
             ]
         },
-        "phone_No": {
+        "phone_no": {
             "$id": "#/properties/Phone_No",
             "type": "string",
             "title": "The Phone_No schema",
@@ -62,22 +64,22 @@
         },
         "freshMeats": {
             "$id": "#/properties/Fresh%20Meats",
-            "type": "string",
+            "type": "boolean",
             "title": "The Fresh Meats schema",
             "description": "Are fresh meats, and Poltry items available here?",
-            "default": "",
+            "default": false,
             "examples": [
-                "No"
+                true
             ]
         },
         "freshVegies": {
             "$id": "#/properties/Fresh%20Vegies",
-            "type": "string",
+            "type": "boolean",
             "title": "The Fresh Vegies schema",
             "description": "Are some fresh vegitables, herbs and Fruits avaialble?.",
-            "default": "",
+            "default": false,
             "examples": [
-                "yes"
+                true
             ]
         },
         "location": {

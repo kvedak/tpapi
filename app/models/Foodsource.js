@@ -12,6 +12,8 @@ const foodSourceSchema = new Schema({
   type: String,
   address: String,
   location: String,
+  freshMeats: Boolean,
+  freshVegies: Boolean
 });
 
 foodSourceSchema.statics = {
