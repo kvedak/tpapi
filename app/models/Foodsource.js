@@ -60,6 +60,22 @@ foodSourceSchema.statics = {
     }
     return foodSource.toObject();
   },
+/**
+ * Find source by id
+ * @param {*} query
+ * @param {*} fields
+ * @param {*} skip
+ * @param {*} limit
+ * @returns
+ */
+async readFoodSourceById(id) {
+  const foodSource = await this.findById(id);
+  if (!foodSource) {
+    throw new APIError(404, "FoodSource Not Found", `No foodSource for '${id}' found.`);
+  }
+  return foodSource.toObject();
+},
+
   /**
    * Get a list of FoodSources
    * @param {Object} query - pre-formatted query to retrieve foodSources.

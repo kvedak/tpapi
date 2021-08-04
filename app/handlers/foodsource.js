@@ -42,6 +42,22 @@ async function readFoodSource(request, response, next) {
     return next(err);
   }
 }
+/**
+ * Get a single foodSourceById
+ * @param {String} id - id of the foodsource record
+ * @param {*} response
+ * @param {*} next
+ * @returns
+ */
+ async function readFoodSourceById(request, response, next) {
+  const { id } = request.params;
+  try {
+    const foodSource = await FoodSource.readFoodSourceById(id);
+    return response.json(foodSource);
+  } catch (err) {
+    return next(err);
+  }
+}
 
 /**
  * Update a single foodSource
@@ -86,6 +102,7 @@ async function deleteFoodSource(request, response, next) {
 module.exports = {
   createFoodSource,
   readFoodSource,
+  readFoodSourceById,
   updateFoodSource,
   deleteFoodSource
 };

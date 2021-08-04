@@ -3,6 +3,7 @@ const express = require("express");
 
 // app imports
 const { foodSourceHandler, foodSourcesHandler } = require("../handlers");
+const { readFoodSourceById } = require("../handlers/foodsource");
 
 // globals
 const router = new express.Router();
@@ -21,5 +22,11 @@ router
   .get(readFoodSource)
   .patch(updateFoodSource)
   .delete(deleteFoodSource);
+
+  router
+  .route("/byid/:id")
+  .get(readFoodSourceById);
+  // .patch(updateFoodSource)
+  // .delete(deleteFoodSource);
 
 module.exports = router;
