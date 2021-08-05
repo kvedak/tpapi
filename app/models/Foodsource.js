@@ -36,7 +36,7 @@ foodSourceSchema.statics = {
     return foodSource.toObject();
   },
   /**
-   * Delete a single FoodSource
+   * Delete a single FoodSource by name
    * @param {String} name - the FoodSource's name
    * @returns {Promise<FoodSource, APIError>}
    */
@@ -47,6 +47,20 @@ foodSourceSchema.statics = {
     }
     return deleted.toObject();
   },
+  
+  /**
+   * Delete a single FoodSource by id
+   * @param {String} id - the FoodSource's id
+   * @returns {Promise<FoodSource, APIError>}
+   */
+   async deleteFoodSourceById(id) {
+    const deleted = await this.findByIdAndRemove({_id: id });
+    if (!deleted) {
+      throw new APIError(404, "this Not Found", `No foodSource with id '${id}' found.`);
+    }
+    return deleted.toObject();
+  },
+
   /**
    * Get a single FoodSource by name
    * @param {String} name - the FoodSource's name
@@ -107,6 +121,23 @@ async readFoodSourceById(id) {
     });
     if (!foodSource) {
       throw new APIError(404, "FoodSource Not Found", `No foodSource '${name}' found.`);
+    }
+    return foodSource.toObject();
+  },
+
+
+ /**
+   * Patch/Update a single FoodSource
+   * @param {String} name - the FoodSource's Id
+   * @param {Object} foodSourceUpdate - the json containing the FoodSource attributes
+   * @returns {Promise<FoodSource, APIError>}
+   */
+  async updateFoodSourceById(id, foodSourceUpdate) {
+    const foodSource = await this.findByIdAndUpdate({_id: id }, foodSourceUpdate, {
+      new: true
+    });
+    if (!foodSource) {
+      throw new APIError(404, "FoodSource Not Found", `No foodSource wit id'${id}' found.`);
     }
     return foodSource.toObject();
   }

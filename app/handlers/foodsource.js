@@ -30,7 +30,7 @@ async function createFoodSource(request, response, next) {
 }
 
 /**
- * Get a single foodSource
+ * Get a single foodSource by name
  * @param {String} name - the name of the FoodSource to retrieve
  */
 async function readFoodSource(request, response, next) {
@@ -42,6 +42,24 @@ async function readFoodSource(request, response, next) {
     return next(err);
   }
 }
+
+/**
+ * Get a single foodSourceById
+ * @param {String} id - id of the foodsource record
+ * @param {*} response
+ * @param {*} next
+ * @returns
+ */
+ async function readFoodSourceById(request, response, next) {
+  const { id } = request.params;
+  try {
+    const foodSource = await FoodSource.readFoodSourceById(id);
+    return response.json(foodSource);
+  } catch (err) {
+    return next(err);
+  }
+}
+
 
 /**
  * Update a single foodSource
@@ -68,9 +86,34 @@ async function updateFoodSource(request, response, next) {
     return next(err);
   }
 }
+/**
+ * Update a single foodSource
+ * @param {String} name - the id of the FoodSource to update
+ */
+ async function updateFoodSourceById(request, response, next) {
+  const { id } = request.params;
+
+  const validation = validate(request.body, foodSourceUpdateSchema);
+  if (!validation.valid) {
+    return next(
+      new APIError(
+        400,
+        "Bad Request",
+        validation.errors.map(e => e.stack).join(". ")
+      )
+    );
+  }
+
+  try {
+    const foodSource = await FoodSource.updateFoodSourceById(id, request.body);
+    return response.json(foodSource);
+  } catch (err) {
+    return next(err);
+  }
+}
 
 /**
- * Remove a single foodSource
+ * Remove a single foodSource by name
  * @param {String} name - the name of the FoodSource to remove
  */
 async function deleteFoodSource(request, response, next) {
@@ -83,9 +126,27 @@ async function deleteFoodSource(request, response, next) {
   }
 }
 
+/**
+ * Remove a single foodSource by id
+ * @param {String} id - the id of the FoodSource to remove
+ */
+ async function deleteFoodSourceById(request, response, next) {
+  const { id } = request.params;
+  try {
+    const deleteMsg = await FoodSource.deleteFoodSourceById(id);
+    return response.json(deleteMsg);
+  } catch (err) {
+    return next(err);
+  }
+}
+
 module.exports = {
   createFoodSource,
   readFoodSource,
+  readFoodSourceById,
   updateFoodSource,
-  deleteFoodSource
+  updateFoodSourceById,
+  deleteFoodSource,
+  deleteFoodSourceById
+
 };
