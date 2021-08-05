@@ -29,14 +29,30 @@ async function createFoodSource(request, response, next) {
   }
 }
 
+// /**
+//  * Get a single foodSource
+//  * @param {String} name - the name of the FoodSource to retrieve
+//  */
+// async function readFoodSource(request, response, next) {
+//   const { name } = request.params;
+//   try {
+//     const foodSource = await FoodSource.readFoodSource(name);
+//     return response.json(foodSource);
+//   } catch (err) {
+//     return next(err);
+//   }
+// }
 /**
- * Get a single foodSource
- * @param {String} name - the name of the FoodSource to retrieve
+ * Get a single foodSourceById
+ * @param {String} id - id of the foodsource record
+ * @param {*} response
+ * @param {*} next
+ * @returns
  */
-async function readFoodSource(request, response, next) {
-  const { name } = request.params;
+ async function readFoodSourceById(request, response, next) {
+  const { id } = request.params;
   try {
-    const foodSource = await FoodSource.readFoodSource(name);
+    const foodSource = await FoodSource.readFoodSourceById(id);
     return response.json(foodSource);
   } catch (err) {
     return next(err);
@@ -85,7 +101,8 @@ async function deleteFoodSource(request, response, next) {
 
 module.exports = {
   createFoodSource,
-  readFoodSource,
-  updateFoodSource,
+  // readFoodSource,
+  readFoodSourceById,
+  // updateFoodSource,
   deleteFoodSource
 };
