@@ -1,0 +1,152 @@
+// npm packages
+const { validate } = require("jsonschema");
+
+// app imports
+const { User } = require("../models");
+const { APIError } = require("../helpers");
+const { userSchema, userUpdateSchema } = require("../schemas");
+
+/**
+ * Validate the POST request body and create a new User
+ */
+async function createUser(request, response, next) {
+  const validation = validate(request.body, userSchema);
+  if (!validation.valid) {
+    return next(
+      new APIError(
+        400,
+        "Bad Request",
+        validation.errors.map(e => e.stack).join(". ")
+      )
+    );
+  }
+
+  try {
+    const newFoodSource = await User.createFoodSource(new User(request.body));
+    return response.status(201).json(newFoodSource);
+  } catch (err) {
+    return next(err);
+  }
+}
+
+/**
+ * Get a single user by name
+ * @param {String} name - the name of the User to retrieve
+ */
+async function readUser(request, response, next) {
+  const { name } = request.params;
+  try {
+    const user = await User.readUser(name);
+    return response.json(user);
+  } catch (err) {
+    return next(err);
+  }
+}
+
+/**
+ * Get a single foodSourceById
+ * @param {String} id - id of the foodsource record
+ * @param {*} response
+ * @param {*} next
+ * @returns
+ */
+ async function readFoodSourceById(request, response, next) {
+  const { id } = request.params;
+  try {
+    const user = await User.readFoodSourceById(id);
+    return response.json(user);
+  } catch (err) {
+    return next(err);
+  }
+}
+
+
+/**
+ * Update a single user
+ * @param {String} name - the name of the User to update
+ */
+async function updateFoodSource(request, response, next) {
+  const { name } = request.params;
+
+  const validation = validate(request.body, userUpdateSchema);
+  if (!validation.valid) {
+    return next(
+      new APIError(
+        400,
+        "Bad Request",
+        validation.errors.map(e => e.stack).join(". ")
+      )
+    );
+  }
+
+  try {
+    const user = await User.updateFoodSource(name, request.body);
+    return response.json(user);
+  } catch (err) {
+    return next(err);
+  }
+}
+/**
+ * Update a single user
+ * @param {String} name - the id of the User to update
+ */
+ async function updateFoodSourceById(request, response, next) {
+  const { id } = request.params;
+
+  const validation = validate(request.body, userUpdateSchema);
+  if (!validation.valid) {
+    return next(
+      new APIError(
+        400,
+        "Bad Request",
+        validation.errors.map(e => e.stack).join(". ")
+      )
+    );
+  }
+
+  try {
+    const user = await User.updateFoodSourceById(id, request.body);
+    return response.json(user);
+  } catch (err) {
+    return next(err);
+  }
+}
+
+/**
+ * Remove a single user by name
+ * @param {String} name - the name of the User to remove
+ */
+async function deleteFoodSource(request, response, next) {
+  const { name } = request.params;
+  try {
+    const deleteMsg = await User.deleteFoodSource(name);
+    return response.json(deleteMsg);
+  } catch (err) {
+    return next(err);
+  }
+}
+
+/**
+ * Remove a single user by id
+ * @param {String} id - the id of the User to remove
+ */
+ async function deleteFoodSourceById(request, response, next) {
+  const { id } = request.params;
+  try {
+    const deleteMsg = await User.deleteFoodSourceById(id);
+    return response.json(deleteMsg);
+  } catch (err) {
+    return next(err);
+  }
+}
+
+module.exports = {
+  createUser,
+  readUser,
+  readFoodSourceById,
+  updateFoodSource,
+  updateFoodSourceById,
+  deleteFoodSource,
+  deleteFoodSourceById
+
+};
