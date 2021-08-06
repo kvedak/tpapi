@@ -30,7 +30,7 @@ app.use(bodyParserHandler); // error handling specific to body parser only
 // response headers setup; CORS
 app.use(globalResponseHeaders);
 
-app.use ("/tpapi", foodSourcesRouter);
+app.use ("/tpapi/foodsources", foodSourcesRouter);
 
 
 // catch-all for 404 "Not Found" errors

@@ -11,18 +11,18 @@ const { createFoodSource, readFoodSource, readFoodSourceById, updateFoodSourceBy
 
 /* All the FoodSources Route */
 router
-  .route("/foodsources")
+  .route("")
   .get(readFoodSources)
   .post(createFoodSource);
 
 /* Single FoodSource by Name Route */
 router
-  .route("/foodsources/byname/:name")
+  .route("/byname/:name")
   .get(readFoodSource)
   .patch(updateFoodSource)
   .delete(deleteFoodSource);
 router
-  .route("/foodsources/byid/:id")
+  .route("/byid/:id")
   .get(readFoodSourceById)
   .patch(updateFoodSourceById)
   .delete(deleteFoodSourceById);
