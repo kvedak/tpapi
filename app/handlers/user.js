@@ -116,29 +116,29 @@ async function readUser(request, response, next) {
  * Remove a single user by name
  * @param {String} name - the name of the User to remove
  */
-// async function deleteFoodSource(request, response, next) {
-//   const { name } = request.params;
-//   try {
-//     const deleteMsg = await User.deleteFoodSource(name);
-//     return response.json(deleteMsg);
-//   } catch (err) {
-//     return next(err);
-//   }
-// }
+async function deleteUser(request, response, next) {
+  const { name } = request.params;
+  try {
+    const deleteMsg = await User.deleteUser(name);
+    return response.json(deleteMsg);
+  } catch (err) {
+    return next(err);
+  }
+}
 
 // /**
 //  * Remove a single user by id
 //  * @param {String} id - the id of the User to remove
 //  */
-//  async function deleteFoodSourceById(request, response, next) {
-//   const { id } = request.params;
-//   try {
-//     const deleteMsg = await User.deleteFoodSourceById(id);
-//     return response.json(deleteMsg);
-//   } catch (err) {
-//     return next(err);
-//   }
-// }
+ async function deleteUserById(request, response, next) {
+  const { id } = request.params;
+  try {
+    const deleteMsg = await User.deleteUserById(id);
+    return response.json(deleteMsg);
+  } catch (err) {
+    return next(err);
+  }
+}
 
 module.exports = {
   createUser,
@@ -146,7 +146,7 @@ module.exports = {
   readUserById,
   // updateUser,
   // updateUserById,
-  // deleteUser,
-  // deleteUserById
+  deleteUser,
+  deleteUserById
 
 };

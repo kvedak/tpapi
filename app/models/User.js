@@ -40,26 +40,26 @@ userSchema.statics = {
    * @param {String} name - the User's name
    * @returns {Promise<User, APIError>}
    */
-  // async deleteUser(name) {
-  //   const deleted = await this.findOneAndRemove({ name });
-  //   if (!deleted) {
-  //     throw new APIError(404, "User Not Found", `No user '${name}' found.`);
-  //   }
-  //   return deleted.toObject();
-  // },
+  async deleteUser(name) {
+    const deleted = await this.findOneAndRemove({ name });
+    if (!deleted) {
+      throw new APIError(404, "User Not Found", `No user '${name}' found.`);
+    }
+    return deleted.toObject();
+  },
 
   /**
    * Delete a single User by id
    * @param {String} id - the User's id
    * @returns {Promise<User, APIError>}
    */
-  //  async deleteUserById(id) {
-  //   const deleted = await this.findByIdAndRemove({_id: id });
-  //   if (!deleted) {
-  //     throw new APIError(404, "this Not Found", `No user with id '${id}' found.`);
-  //   }
-  //   return deleted.toObject();
-  // },
+   async deleteUserById(id) {
+    const deleted = await this.findByIdAndRemove({_id: id });
+    if (!deleted) {
+      throw new APIError(404, "this Not Found", `No user with id '${id}' found.`);
+    }
+    return deleted.toObject();
+  },
 
   /**
    * Get a single User by name
