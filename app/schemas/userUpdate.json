@@ -39,15 +39,16 @@
           ]
       },
       "type": {
-          "$id": "#/properties/type",
-          "type": "string",
-          "title": "The type schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": "",
-          "examples": [
-              "standard"
-          ]
-      },
+        "$id": "#/properties/type",
+        "type": "string",
+        "title": "The type schema",
+        "enum": ["S", "V"], 
+        "description": " S: Standard V:Volunteer.",
+        "default": "",
+        "examples": [
+            "S"
+        ]
+    },
       "available": {
           "$id": "#/properties/available",
           "type": "boolean",

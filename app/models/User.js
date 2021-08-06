@@ -115,15 +115,15 @@ async readUserById(id) {
    * @param {Object} foodSourceUpdate - the json containing the User attributes
    * @returns {Promise<User, APIError>}
    */
-  // async updateUser(name, foodSourceUpdate) {
-  //   const user = await this.findOneAndUpdate({ name }, userUpdate, {
-  //     new: true
-  //   });
-  //   if (!user) {
-  //     throw new APIError(404, "User Not Found", `No user '${name}' found.`);
-  //   }
-  //   return user.toObject();
-  // },
+  async updateUser(name, userUpdate) {
+    const user = await this.findOneAndUpdate({ name }, userUpdate, {
+      new: true
+    });
+    if (!user) {
+      throw new APIError(404, "User Not Found", `No user '${name}' found.`);
+    }
+    return user.toObject();
+  },
 
 
  /**
@@ -132,15 +132,15 @@ async readUserById(id) {
    * @param {Object} foodSourceUpdate - the json containing the User attributes
    * @returns {Promise<User, APIError>}
    */
-  // async updateUserById(id, foodSourceUpdate) {
-  //   const user = await this.findByIdAndUpdate({_id: id }, userUpdate, {
-  //     new: true
-  //   });
-  //   if (!user) {
-  //     throw new APIError(404, "User Not Found", `No user wit id'${id}' found.`);
-  //   }
-  //   return user.toObject();
-  // }
+  async updateUserById(id, userUpdate) {
+    const user = await this.findByIdAndUpdate({_id: id }, userUpdate, {
+      new: true
+    });
+    if (!user) {
+      throw new APIError(404, "User Not Found", `No user wit id'${id}' found.`);
+    }
+    return user.toObject();
+  }
 };
 
 /* Transform with .toObject to remove __v and _id from response */

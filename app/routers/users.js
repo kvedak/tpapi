@@ -7,9 +7,7 @@ const { usersHandler, userHandler } = require("../handlers");
 // globals
 const router = new express.Router();
 const { readUsers } = usersHandler;
-const { createUser, readUser, readUserById, deleteUser, deleteUserById } = userHandler;
-// const { createUser, readFoodSource, readFoodSourceById, updateFoodSourceById, updateFoodSource, deleteFoodSourceById, deleteFoodSource } = userHandler;
-
+const { createUser, readUser, readUserById, deleteUser, deleteUserById, updateUser, updateUserById } = userHandler;
 
 /* All the FoodSources Route */
 router
@@ -21,13 +19,14 @@ router
 router
   .route("/byname/:name")
   .get(readUser)
-  // .patch(updateFoodSource)
+  .patch(updateUser)
   .delete(deleteUser);
+  
 /* Single FoodSource by Id Route */
 router
   .route("/byid/:id")
   .get(readUserById)
-  // .patch(updateFoodSourceById)
+  .patch(updateUserById)
   .delete(deleteUserById);
 
 

@@ -4,7 +4,7 @@ const { validate } = require("jsonschema");
 // app imports
 const { User } = require("../models");
 const { APIError } = require("../helpers");
-const { userNewSchema } = require("../schemas");
+const { userNewSchema, userUpdateSchema } = require("../schemas");
 
 /**
  * Validate the POST request body and create a new User
@@ -65,52 +65,52 @@ async function readUser(request, response, next) {
  * Update a single user
  * @param {String} name - the name of the User to update
  */
-// async function updateFoodSource(request, response, next) {
-//   const { name } = request.params;
+async function updateUser(request, response, next) {
+  const { name } = request.params;
 
-//   const validation = validate(request.body, userUpdateSchema);
-//   if (!validation.valid) {
-//     return next(
-//       new APIError(
-//         400,
-//         "Bad Request",
-//         validation.errors.map(e => e.stack).join(". ")
-//       )
-//     );
-//   }
+  const validation = validate(request.body, userUpdateSchema);
+  if (!validation.valid) {
+    return next(
+      new APIError(
+        400,
+        "Bad Request",
+        validation.errors.map(e => e.stack).join(". ")
+      )
+    );
+  }
 
-//   try {
-//     const user = await User.updateFoodSource(name, request.body);
-//     return response.json(user);
-//   } catch (err) {
-//     return next(err);
-//   }
-// }
+  try {
+    const user = await User.updateUser(name, request.body);
+    return response.json(user);
+  } catch (err) {
+    return next(err);
+  }
+}
 /**
  * Update a single user
  * @param {String} name - the id of the User to update
  */
-//  async function updateFoodSourceById(request, response, next) {
-//   const { id } = request.params;
+ async function updateUserById(request, response, next) {
+  const { id } = request.params;
 
-//   const validation = validate(request.body, userUpdateSchema);
-//   if (!validation.valid) {
-//     return next(
-//       new APIError(
-//         400,
-//         "Bad Request",
-//         validation.errors.map(e => e.stack).join(". ")
-//       )
-//     );
-//   }
+  const validation = validate(request.body, userUpdateSchema);
+  if (!validation.valid) {
+    return next(
+      new APIError(
+        400,
+        "Bad Request",
+        validation.errors.map(e => e.stack).join(". ")
+      )
+    );
+  }
 
-//   try {
-//     const user = await User.updateFoodSourceById(id, request.body);
-//     return response.json(user);
-//   } catch (err) {
-//     return next(err);
-//   }
-// }
+  try {
+    const user = await User.updateUserById(id, request.body);
+    return response.json(user);
+  } catch (err) {
+    return next(err);
+  }
+}
 
 /**
  * Remove a single user by name
@@ -144,8 +144,8 @@ module.exports = {
   createUser,
   readUser,
   readUserById,
-  // updateUser,
-  // updateUserById,
+  updateUser,
+  updateUserById,
   deleteUser,
   deleteUserById
 
