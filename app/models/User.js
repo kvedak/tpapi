@@ -66,14 +66,14 @@ userSchema.statics = {
    * @param {String} name - the User's name
    * @returns {Promise<User, APIError>}
    */
-  // async readUser(name) {
-  //   const user = await this.findOne({ name });
+  async readUser(name) {
+    const user = await this.findOne({ name });
 
-  //   if (!user) {
-  //     throw new APIError(404, "User Not Found", `No user '${name}' found.`);
-  //   }
-  //   return user.toObject();
-  // },
+    if (!user) {
+      throw new APIError(404, "User Not Found", `No user '${name}' found.`);
+    }
+    return user.toObject();
+  },
 /**
  * Find User by id
  * @param {*} query
@@ -82,13 +82,13 @@ userSchema.statics = {
  * @param {*} limit
  * @returns
  */
-// async readUserById(id) {
-//   const user = await this.findById(id);
-//   if (!user) {
-//     throw new APIError(404, "User Not Found", `No user for '${id}' found.`);
-//   }
-//   return user.toObject();
-// },
+async readUserById(id) {
+  const user = await this.findById(id);
+  if (!user) {
+    throw new APIError(404, "User Not Found", `No user for '${id}' found.`);
+  }
+  return user.toObject();
+},
 
   /**
    * Get a list of Users

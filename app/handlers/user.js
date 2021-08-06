@@ -44,21 +44,21 @@ async function readUser(request, response, next) {
 }
 
 /**
- * Get a single foodSourceById
+ * Get a single userById
  * @param {String} id - id of the foodsource record
  * @param {*} response
  * @param {*} next
  * @returns
  */
-//  async function readFoodSourceById(request, response, next) {
-//   const { id } = request.params;
-//   try {
-//     const user = await User.readFoodSourceById(id);
-//     return response.json(user);
-//   } catch (err) {
-//     return next(err);
-//   }
-// }
+ async function readUserById(request, response, next) {
+  const { id } = request.params;
+  try {
+    const user = await User.readUserById(id);
+    return response.json(user);
+  } catch (err) {
+    return next(err);
+  }
+}
 
 
 /**
@@ -142,11 +142,11 @@ async function readUser(request, response, next) {
 
 module.exports = {
   createUser,
-  readUser
-  // readFoodSourceById,
-  // updateFoodSource,
-  // updateFoodSourceById,
-  // deleteFoodSource,
-  // deleteFoodSourceById
+  readUser,
+  readUserById,
+  // updateUser,
+  // updateUserById,
+  // deleteUser,
+  // deleteUserById
 
 };
