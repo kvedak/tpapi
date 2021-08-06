@@ -1,97 +1,188 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "http://example.com/example.json",
-    "type": "object",
-    "title": "The root schema",
-    "description": "The root schema comprises the entire JSON document.",
-    "default": {},
-    "examples": [
-        {
-            "name": "John West",
-            "type": "standard",
-            "available": true,
-            "email": "john.west@email.com",
-            "phoneNo": "(262)665-1234",
-            "address": "3701 Durand Ave, Racine, WI 53405",
-            "location": "42.6958751,-87.8227568"
-        }
-    ],
-    "required": [
-        "name",
-        "type",
-        "available",
-        "email",
-        "phoenNo"
-       
-    ],
-    "properties": {
-        "name": {
-            "$id": "#/properties/Name",
-            "type": "string",
-            "minLength": 5,
-            "title": "Name of the user",
-            "description": "unique name per user",
-            "default": "",
-            "examples": [
-                "Donold Walker Jr."
-            ]
-        },
-        "type": {
-            "$id": "#/properties/Type",
-            "type": "string",
-            "enum": ["S","V","D"],
-            "title": "Type of User ",
-            "description": "S:Subscriber, V:Volunteer, D:Donor",
-            "default": "",
-            "examples": [
-                "V"
-            ]
-        },
-        "address": {
-            "$id": "#/properties/Address",
-            "type": "string",
-            "title": "The Address schema",
-            "description": "Complete address with City, State and Zipcode",
-            "default": "",
-            "examples": [
-                "3701 Durand Ave, Racine, WI 53405"
-            ]
-        },
-        "phoneNo": {
-            "$id": "#/properties/Phone%20No",
-            "type": "string",
-            "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$",
-            "title": "The Phone_No schema",
-            "description": "Optional Phone #",
-            "default": "",
-            "examples": [
-                "(262)598-0693"
-            ]
-        },
-        "location": {
-            "$id": "#/properties/Location",
-            "type": "object",
-            "title": "Longitude and Latitude Values",
-            "description": "A geographical coordinate.",
-            "required": [ "latitude", "longitude" ],
-            "properties": {
-                "latitude": {
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+      {
+          "name": "John West",
+          "type": "standard",
+          "available": true,
+          "email": "john.west@email.com",
+          "phoneNo": "(262)665-1234",
+          "baseAddress": "3701 Durand Ave, Racine, WI 53405",
+          "baseLocation": {
+              "latitude": 42.6958751,
+              "longitude": -87.8227568
+          },
+          "currentLocation": {
+              "latitude": 42.6958751,
+              "longitude": -87.8227568
+          }
+      }
+  ],
+  "required": [
+      "name",
+      "type",
+      "available",
+      "email",
+      "phoneNo",
+      "baseAddress",
+      "baseLocation"
+  ],
+  "properties": {
+      "name": {
+          "$id": "#/properties/name",
+          "type": "string",
+          "title": "The name schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "John West"
+          ]
+      },
+      "type": {
+          "$id": "#/properties/type",
+          "type": "string",
+          "title": "The type schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "standard"
+          ]
+      },
+      "available": {
+          "$id": "#/properties/available",
+          "type": "boolean",
+          "title": "The available schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false,
+          "examples": [
+              true
+          ]
+      },
+      "email": {
+          "$id": "#/properties/email",
+          "type": "string",
+          "format": "email",
+          "title": "The email schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "john.west@email.com"
+          ]
+      },
+      "phoneNo": {
+          "$id": "#/properties/phoneNo",
+          "type": "string",
+          "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$",
+          "title": "The phoneNo schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "(262)665-1234"
+          ]
+      },
+      "baseAddress": {
+          "$id": "#/properties/baseAddress",
+          "type": "string",
+          "title": "The baseAddress schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "3701 Durand Ave, Racine, WI 53405"
+          ]
+      },
+      "baseLocation": {
+          "$id": "#/properties/baseLocation",
+          "type": "object",
+          "title": "The baseLocation schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+              {
+                  "latitude": 42.6958751,
+                  "longitude": -87.8227568
+              }
+          ],
+          "required": [
+              "latitude",
+              "longitude"
+          ],
+          "properties": {
+              "latitude": {
+                  "$id": "#/properties/baseLocation/properties/latitude",
                   "type": "number",
                   "minimum": -90,
-                  "maximum": 90
-                },
-                "longitude": {
+                  "maximum": 90,
+                  "title": "The latitude schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": 0.0,
+                  "examples": [
+                      42.6958751
+                  ]
+              },
+              "longitude": {
+                  "$id": "#/properties/baseLocation/properties/longitude",
                   "type": "number",
                   "minimum": -180,
-                  "maximum": 180
-                }
+                  "maximum": 180,
+                  "title": "The longitude schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": 0.0,
+                  "examples": [
+                      -87.8227568
+                  ]
+              }
+          },
+          "additionalProperties": true
+      },
+      "currentLocation": {
+          "$id": "#/properties/currentLocation",
+          "type": "object",
+          "title": "The currentLocation schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+              {
+                  "latitude": 42.6958751,
+                  "longitude": -87.8227568
+              }
+          ],
+          "required": [
+              "latitude",
+              "longitude"
+          ],
+          "properties": {
+              "latitude": {
+                  "$id": "#/properties/currentLocation/properties/latitude",
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90,
+                  "title": "The latitude schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": 0.0,
+                  "examples": [
+                      42.6958751
+                  ]
               },
-            "examples": [
-                {
-                    "latitude": 42.6958751,
-                    "longitude": -87.8227568}
-                ]
-        }
-    },
-    "additionalProperties": false
+              "longitude": {
+                  "$id": "#/properties/currentLocation/properties/longitude",
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180,
+                  "title": "The longitude schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": 0.0,
+                  "examples": [
+                      -87.8227568
+                  ]
+              }
+          },
+          "additionalProperties": true
+      }
+  },
+  "additionalProperties": true
 }

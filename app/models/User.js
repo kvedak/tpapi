@@ -9,11 +9,12 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: String,
-  available: Boolean, 
+  available: Boolean,
   type: String,
-  email: Email,
+  email: String,
   phoneNo: String,
-  location: Object,
+  baseLocation: Object,
+  currentLocation: Object
 });
 
 userSchema.statics = {
@@ -39,40 +40,40 @@ userSchema.statics = {
    * @param {String} name - the User's name
    * @returns {Promise<User, APIError>}
    */
-  async deleteUser(name) {
-    const deleted = await this.findOneAndRemove({ name });
-    if (!deleted) {
-      throw new APIError(404, "User Not Found", `No user '${name}' found.`);
-    }
-    return deleted.toObject();
-  },
-  
+  // async deleteUser(name) {
+  //   const deleted = await this.findOneAndRemove({ name });
+  //   if (!deleted) {
+  //     throw new APIError(404, "User Not Found", `No user '${name}' found.`);
+  //   }
+  //   return deleted.toObject();
+  // },
+
   /**
    * Delete a single User by id
    * @param {String} id - the User's id
    * @returns {Promise<User, APIError>}
    */
-   async deleteUserById(id) {
-    const deleted = await this.findByIdAndRemove({_id: id });
-    if (!deleted) {
-      throw new APIError(404, "this Not Found", `No user with id '${id}' found.`);
-    }
-    return deleted.toObject();
-  },
+  //  async deleteUserById(id) {
+  //   const deleted = await this.findByIdAndRemove({_id: id });
+  //   if (!deleted) {
+  //     throw new APIError(404, "this Not Found", `No user with id '${id}' found.`);
+  //   }
+  //   return deleted.toObject();
+  // },
 
   /**
    * Get a single User by name
    * @param {String} name - the User's name
    * @returns {Promise<User, APIError>}
    */
-  async readUser(name) {
-    const user = await this.findOne({ name });
+  // async readUser(name) {
+  //   const user = await this.findOne({ name });
 
-    if (!user) {
-      throw new APIError(404, "User Not Found", `No user '${name}' found.`);
-    }
-    return user.toObject();
-  },
+  //   if (!user) {
+  //     throw new APIError(404, "User Not Found", `No user '${name}' found.`);
+  //   }
+  //   return user.toObject();
+  // },
 /**
  * Find User by id
  * @param {*} query
@@ -81,13 +82,13 @@ userSchema.statics = {
  * @param {*} limit
  * @returns
  */
-async readUserById(id) {
-  const user = await this.findById(id);
-  if (!user) {
-    throw new APIError(404, "User Not Found", `No user for '${id}' found.`);
-  }
-  return user.toObject();
-},
+// async readUserById(id) {
+//   const user = await this.findById(id);
+//   if (!user) {
+//     throw new APIError(404, "User Not Found", `No user for '${id}' found.`);
+//   }
+//   return user.toObject();
+// },
 
   /**
    * Get a list of Users
@@ -114,15 +115,15 @@ async readUserById(id) {
    * @param {Object} foodSourceUpdate - the json containing the User attributes
    * @returns {Promise<User, APIError>}
    */
-  async updateUser(name, foodSourceUpdate) {
-    const user = await this.findOneAndUpdate({ name }, userUpdate, {
-      new: true
-    });
-    if (!user) {
-      throw new APIError(404, "User Not Found", `No user '${name}' found.`);
-    }
-    return user.toObject();
-  },
+  // async updateUser(name, foodSourceUpdate) {
+  //   const user = await this.findOneAndUpdate({ name }, userUpdate, {
+  //     new: true
+  //   });
+  //   if (!user) {
+  //     throw new APIError(404, "User Not Found", `No user '${name}' found.`);
+  //   }
+  //   return user.toObject();
+  // },
 
 
  /**
@@ -131,15 +132,15 @@ async readUserById(id) {
    * @param {Object} foodSourceUpdate - the json containing the User attributes
    * @returns {Promise<User, APIError>}
    */
-  async updateUserById(id, foodSourceUpdate) {
-    const user = await this.findByIdAndUpdate({_id: id }, userUpdate, {
-      new: true
-    });
-    if (!user) {
-      throw new APIError(404, "User Not Found", `No user wit id'${id}' found.`);
-    }
-    return user.toObject();
-  }
+  // async updateUserById(id, foodSourceUpdate) {
+  //   const user = await this.findByIdAndUpdate({_id: id }, userUpdate, {
+  //     new: true
+  //   });
+  //   if (!user) {
+  //     throw new APIError(404, "User Not Found", `No user wit id'${id}' found.`);
+  //   }
+  //   return user.toObject();
+  // }
 };
 
 /* Transform with .toObject to remove __v and _id from response */

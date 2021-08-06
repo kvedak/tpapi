@@ -6,7 +6,7 @@ Promise = require("bluebird"); // eslint-disable-line
 // app imports
 const { connectToDatabase, globalResponseHeaders } = require("./config");
 const { errorHandler } = require("./handlers");
-const { foodSourcesRouter } = require("./routers");
+const { foodSourcesRouter, usersRouter } = require("./routers");
 
 
 // global constants
@@ -31,7 +31,7 @@ app.use(bodyParserHandler); // error handling specific to body parser only
 app.use(globalResponseHeaders);
 
 app.use ("/tpapi/foodsources", foodSourcesRouter);
-
+app.use ("/tpapi/users", usersRouter);
 
 // catch-all for 404 "Not Found" errors
 app.get("*", fourOhFourHandler);

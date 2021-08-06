@@ -14,10 +14,7 @@
         }
     ],
     "required": [
-        "name",
-        "type",
-        "address",
-        "location"
+
     ],
     "properties": {
         "name": {
@@ -106,7 +103,7 @@
                     "latitude": 42.6958751,
                     "longitude": -87.8227568}
                 ]
-            }  
+            }
         },
     "additionalProperties": false
 }

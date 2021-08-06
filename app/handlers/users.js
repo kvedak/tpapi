@@ -16,8 +16,8 @@ async function readUsers(request, response, next) {
   }
 
   try {
-    const users = await User.users({}, {}, skip, limit);
-    return response.json(s);
+    const users = await User.readUsers({}, {}, skip, limit);
+    return response.json(users);
   } catch (err) {
     return next(err);
   }
