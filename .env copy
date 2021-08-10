@@ -1,0 +1,2 @@
+MONGODB_URI = mongodb+srv://techprize:<password>@cluster0.dglv4.mongodb.net/food_desert?retryWrites=true&w=majority
+PORT = 5050

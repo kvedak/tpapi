@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+require('dotenv').config()
 const APP_NAME = "Techprize API";
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 5000;
