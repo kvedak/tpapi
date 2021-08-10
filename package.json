@@ -9,7 +9,8 @@
   },
   "main": "app/app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node app/server.js"
   },
   "license": "MIT",
   "dependencies": {

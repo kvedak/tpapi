@@ -22,6 +22,7 @@ This configuration is a backend [RESTful API](https://en.wikipedia.org/wiki/Repr
 - [NGINX](https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/) as a proxy / content-caching layer
 
 ## How to Install & Run
+### with Docker 
 
 You will need to first download and install [Docker Desktop](https://www.docker.com/products/docker-desktop) or [Linux equivalent](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
@@ -32,6 +33,11 @@ You will need to first download and install [Docker Desktop](https://www.docker.
     - the NGINX proxy container
 1.  Server is accessible at `http://localhost:5000` if you have Docker for Windows or Mac. Use `http://localhost` without specifying the port to hit the NGINX proxy. On Linux, you may need to hit the IP Address of the docker-machine rather than `localhost` (port rules are the same.)
 
+### using Local Environment with MLab
+1. Create account at MLAB or any other Mongodb Cloud Service 
+2. Copy .envexample as .env update the connection string
+3. at the terminal > npm start
+4. Server accesible ar localhost:5050/tpapi
 ## How to Run Tests
 
 Currently, tests are run outside of the Docker container (unfortunately for now). The tests use an in-memory version of MongoDB. You should be able to run `npm install` followed by `npm test` to run everything (assuming you have the LTS version of Node installed on your machine).
