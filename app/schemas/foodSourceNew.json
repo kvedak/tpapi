@@ -8,10 +8,19 @@
     "examples": [
         {
             "name": "Save A Lot",
-            "type": "convenience store",
+            "type": "CS",
             "address": "3701 Durand Ave, Racine, WI 53405",
-            "location": "42.6958751,-87.8227568"
-        }
+            "phoneNo": "(262)562-8000",
+            "freshMeats": true,
+            "freshVeggies": true,
+            "dairy": true,
+            "Poultry": true,
+            "Bakery": true,
+           "location": {
+               "latitude": 42.6932672,
+               "longitude": -87.8226294
+           }
+       }
     ],
     "required": [
         "name",
@@ -73,11 +82,41 @@
                 true
             ]
         },
-        "freshVegies": {
-            "$id": "#/properties/Fresh%20Vegies",
+        "freshVeggies": {
+            "$id": "#/properties/Fresh%20Veggies",
             "type": "boolean",
-            "title": "The Fresh Vegies schema",
+            "title": "The Fresh Veggies schema",
             "description": "Are some fresh vegitables, herbs and Fruits avaialble?.",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "dairy": {
+            "$id": "#/properties/Fresh%20Dairy",
+            "type": "boolean",
+            "title": "The Dairy schema",
+            "description": "Are dairy products avaialble?.",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "poultry": {
+            "$id": "#/properties/Fresh%20Poultry",
+            "type": "boolean",
+            "title": "The poultry schema",
+            "description": "Are poultry products avaialble?.",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "bakery": {
+            "$id": "#/properties/Fresh%20Poultry",
+            "type": "boolean",
+            "title": "The Bakery schema",
+            "description": "Are Bakery products avaialble?.",
             "default": false,
             "examples": [
                 true

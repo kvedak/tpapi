@@ -70,11 +70,41 @@
                 true
             ]
         },
-        "freshVegies": {
-            "$id": "#/properties/Fresh%20Vegies",
+        "freshVeggies": {
+            "$id": "#/properties/Fresh%20Veggies",
             "type": "boolean",
-            "title": "The Fresh Vegies schema",
+            "title": "The Fresh Veggies schema",
             "description": "Are some fresh vegitables, herbs and Fruits avaialble?.",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "dairy": {
+            "$id": "#/properties/Fresh%20Dairy",
+            "type": "boolean",
+            "title": "The Dairy schema",
+            "description": "Are dairy products avaialble?.",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "poultry": {
+            "$id": "#/properties/Fresh%20Poultry",
+            "type": "boolean",
+            "title": "The poultry schema",
+            "description": "Are poultry products avaialble?.",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "bakery": {
+            "$id": "#/properties/Fresh%20Poultry",
+            "type": "boolean",
+            "title": "The Bakery schema",
+            "description": "Are Bakery products avaialble?.",
             "default": false,
             "examples": [
                 true
