@@ -13,6 +13,7 @@ const userSchema = new Schema({
   type: String,
   email: String,
   phoneNo: String,
+  baseAddress: String,
   baseLocation: Object,
   currentLocation: Object
 });
