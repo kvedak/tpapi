@@ -12,7 +12,7 @@ function fourOhFourHandler(request, response, next) {
   return next(
     new APIError(
       404,
-      "Resource Not Found",
+      "Resource Not Found, please read API documenttaion",
       `${request.path} is not valid path to a ${APP_NAME} resource.`
     )
   );

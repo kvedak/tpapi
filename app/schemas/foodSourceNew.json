@@ -14,8 +14,8 @@
             "freshMeats": true,
             "freshVeggies": true,
             "dairy": true,
-            "Poultry": true,
-            "Bakery": true,
+            "poultry": true,
+            "bakery": true,
            "location": {
                "latitude": 42.6932672,
                "longitude": -87.8226294
