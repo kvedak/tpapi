@@ -101,7 +101,7 @@
             ]
         },
         "bakery": {
-            "$id": "#/properties/Fresh%20Poultry",
+            "$id": "#/properties/Fresh%20Bakery",
             "type": "boolean",
             "title": "The Bakery schema",
             "description": "Are Bakery products avaialble?.",
